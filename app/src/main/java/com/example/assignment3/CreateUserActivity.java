@@ -42,8 +42,12 @@ public class CreateUserActivity extends AppCompatActivity {
             String name = nameInput.getText().toString();
             String email = emailInput.getText().toString();
             int selectedId = role.getCheckedRadioButtonId();
+            if (selectedId == -1) {
+                Toast.makeText(this, "Please select a role", Toast.LENGTH_SHORT).show();
+                return;
+            }
             RadioButton selectedRadioButton = findViewById(selectedId);
-            String role = selectedRadioButton.getText().toString().toLowerCase();
+            String role = selectedRadioButton.getText().toString();
 
             if (name.isEmpty() || email.isEmpty() || role.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();

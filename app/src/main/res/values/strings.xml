@@ -1,3 +1,13 @@
 <resources>
+    <string name="create_user_title">Create User Info</string>
     <string name="app_name">assignment3</string>
+    <string name="name_label">Name</string>
+    <string name="email_label">Email</string>
+    <string name="role_label">Role</string>
+    <string name="submit_label">Submit</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="update_label">Update</string>
+    <string name="student_radio_text">Student</string>
+    <string name="employee_radio_text">Employee</string>
+    <string name="other_radio_text">Other</string>
 </resources>

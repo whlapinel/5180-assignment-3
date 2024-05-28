@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Create User Info"
+        android:text="@string/create_user_title"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
-        android:text="Name"
+        android:text="@string/name_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleText" />
 
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Email"
+        android:text="@string/email_label"
         app:layout_constraintStart_toStartOf="@+id/nameCreateLabel"
         app:layout_constraintTop_toBottomOf="@+id/nameCreateLabel" />
 
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Role"
+        android:text="@string/role_label"
         app:layout_constraintStart_toStartOf="@+id/emailCreateLabel"
         app:layout_constraintTop_toBottomOf="@+id/emailCreateLabel" />
 
@@ -79,7 +79,7 @@
             android:id="@+id/studentRadioBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Student"
+            android:text="@string/student_radio_text"
             tools:layout_editor_absoluteX="114dp"
             tools:layout_editor_absoluteY="209dp" />
 
@@ -87,13 +87,13 @@
             android:id="@+id/employeeRadioBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Employee" />
+            android:text="@string/employee_radio_text" />
 
         <RadioButton
             android:id="@+id/otherRadioBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Other" />
+            android:text="@string/other_radio_text" />
 
     </RadioGroup>
 

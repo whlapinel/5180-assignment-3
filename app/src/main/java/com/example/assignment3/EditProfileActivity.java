@@ -16,12 +16,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class EditProfileActivity extends AppCompatActivity {
     Button submitBtn;
+    Button cancelBtn;
     EditText nameEditInput;
 
     EditText emailEditInput;
 
     RadioGroup roleEditInput;
-
 
 
     @Override
@@ -40,6 +40,7 @@ public class EditProfileActivity extends AppCompatActivity {
             return;
         }
         submitBtn = findViewById(R.id.submitBtn);
+        cancelBtn = findViewById(R.id.cancelBtn);
         nameEditInput = findViewById(R.id.nameEditInput);
         emailEditInput = findViewById(R.id.emailEditInput);
         roleEditInput = findViewById(R.id.roleEditInput);
@@ -47,16 +48,23 @@ public class EditProfileActivity extends AppCompatActivity {
         emailEditInput.setText(user.email);
 
         switch (user.role) {
-            case "student":
+            case "Student":
                 roleEditInput.check(R.id.studentEditRadioBtn);
                 break;
-            case "employee":
+            case "Employee":
                 roleEditInput.check(R.id.employeeEditRadioBtn);
                 break;
-            case "other":
+            case "Other":
                 roleEditInput.check(R.id.otherEditRadioBtn);
                 break;
         }
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +73,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 String email = emailEditInput.getText().toString();
                 int selectedRadioId = roleEditInput.getCheckedRadioButtonId();
                 RadioButton selectedRadioButton = findViewById(selectedRadioId);
-                String role = selectedRadioButton.getText().toString().toLowerCase();
+                String role = selectedRadioButton.getText().toString();
                 User updatedUser = new User(name, email, role);
                 Intent returnIntent = new Intent();
                 returnIntent.putExtra("user", updatedUser);
@@ -73,7 +81,5 @@ public class EditProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 }
