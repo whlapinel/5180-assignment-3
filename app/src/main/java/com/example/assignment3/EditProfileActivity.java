@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -59,18 +60,17 @@ public class EditProfileActivity extends AppCompatActivity {
                 break;
         }
 
-        cancelBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        cancelBtn.setOnClickListener(v -> {
                 finish();
-            }
         });
 
-        submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        submitBtn.setOnClickListener(v -> {
                 String name = nameEditInput.getText().toString();
                 String email = emailEditInput.getText().toString();
+                if (name.isEmpty() || email.isEmpty()) {
+                    Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 int selectedRadioId = roleEditInput.getCheckedRadioButtonId();
                 RadioButton selectedRadioButton = findViewById(selectedRadioId);
                 String role = selectedRadioButton.getText().toString();
@@ -79,7 +79,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 returnIntent.putExtra("user", updatedUser);
                 setResult(RESULT_OK, returnIntent);
                 finish();
-            }
         });
     }
 }
